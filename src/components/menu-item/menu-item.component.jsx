@@ -1,8 +1,19 @@
 import "./menu-item.styles.scss";
 
-const MenuItem = ({title}) => {
+
+// {
+//   title: "sneakers",
+//   imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
+//   id: 3,
+//   linkUrl: "shop/sneakers",
+// },
+
+const MenuItem = ({title, imageUrl, size}) => {
   return (
-    <div className="menu-item">
+    <div 
+      style={{backgroundImage:`url(${imageUrl})`}}
+      className={`${size} menu-item`}
+      >
       <div className="content">
         <h1 className="title">{title}</h1>
         <span className="subtitle">SHOP NOW</span>
