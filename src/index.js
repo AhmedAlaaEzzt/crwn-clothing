@@ -6,10 +6,12 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ShopPage from "./pages/shop/shop.componet.jsx";
+import Header from "./components/header/header.component.jsx";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="shop" element={<ShopPage />}/>
