@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ShopPage from "./pages/shop/shop.componet.jsx";
 import Header from "./components/header/header.component.jsx";
-
+import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -15,6 +15,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="shop" element={<ShopPage />}/>
+        <Route path="/signin" element={<SignInAndSignUp />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
