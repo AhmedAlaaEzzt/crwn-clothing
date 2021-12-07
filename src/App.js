@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./App.css";
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,30 +8,29 @@ import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.com
 import { auth } from "./firebase/firebase.utils.js";
 
 class App extends Component {
-  state ={
-    currentUser: null
-  }
-
+  state = {
+    currentUser: null,
+  };
 
   unsubscribeFromAuth = null;
 
-  componentDidMount(){
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({currentUser: user})
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+      this.setState({ currentUser: user });
       console.log(user);
-    })
+    });
   }
 
-  componentWillUnmount(){
-    this.unsubscribeFromAuth()
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
   }
 
-
-  render(){
+  render() {
+    const { currentUser } = this.state;
     return (
       <div>
         <BrowserRouter>
-          <Header />
+          <Header currentUser={currentUser} />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="shop" element={<ShopPage />} />
@@ -41,7 +40,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;
