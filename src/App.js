@@ -42,16 +42,11 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <Header />
-
-          {currentUser ? (
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="shop" element={<ShopPage />} />
-              <Route path="/signin" element={<HomePage />} />
-            </Routes>
-          ) : (
-            <SignInAndSignUp />
-          )}
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="shop" element={<ShopPage />} />
+            <Route path="/signin" element={<SignInAndSignUp />} />
+          </Routes>
         </BrowserRouter>
       </div>
     );
