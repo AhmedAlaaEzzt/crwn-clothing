@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import HomePage from "./pages/homepage/homepage.component.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ShopPage from "./pages/shop/shop.componet.jsx";
 import Header from "./components/header/header.component.jsx";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
@@ -36,6 +36,7 @@ class App extends Component {
   }
 
   render() {
+    const { currentUser } = this.props;
 
     return (
       <div>
@@ -52,10 +53,12 @@ class App extends Component {
   }
 }
 
-
+const mapStateToProps = (state) => ({
+  currentUser: state.userReducer.currentUser,
+});
 
 const mapDespatichToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDespatichToProps)(App);
+export default connect(mapStateToProps, mapDespatichToProps)(App);
