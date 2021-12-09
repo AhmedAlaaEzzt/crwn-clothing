@@ -35,6 +35,14 @@ class App extends Component {
     this.unsubscribeFromAuth();
   }
 
+  redirectUser =(currentUser,component)=>{
+    console.log(currentUser);
+    if(currentUser){
+      return component;
+    }else{
+      return <Navigate to="/signin" replace={true} />
+    }
+  }
   render() {
     const { currentUser } = this.props;
 
@@ -45,7 +53,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="shop" element={<ShopPage />} />
-            <Route path="/signin" element={<SignInAndSignUp />} />
+            <Route path="/signin" element={ currentUser?<Navigate to="/shop" replace={true} /> : <SignInAndSignUp />} />
           </Routes>
         </BrowserRouter>
       </div>
