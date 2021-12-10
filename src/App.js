@@ -39,14 +39,6 @@ class App extends Component {
     this.unsubscribeFromAuth();
   }
 
-  redirectUser = (currentUser, component) => {
-    console.log(currentUser);
-    if (currentUser) {
-      return component;
-    } else {
-      return <Navigate to="/signin" replace={true} />;
-    }
-  };
   render() {
     const { currentUser } = this.props;
 
@@ -67,7 +59,7 @@ class App extends Component {
                 )
               }
             />
-            <Route path="/checkout" element={<CheckoutPage/>} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </BrowserRouter>
       </div>
