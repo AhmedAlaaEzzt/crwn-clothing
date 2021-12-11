@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
-import HomePage from "./pages/homepage/homepage.component.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import ShopPage from "./pages/shop/shop.componet.jsx";
 import Header from "./components/header/header.component.jsx";
+
+//pages
+import HomePage from "./pages/homepage/homepage.component.jsx";
+import ShopPage from "./pages/shop/shop.componet.jsx";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
 import CheckoutPage from "./pages/checkout/checkout.component";
+import CollectionPage from "./pages/collection/collection.component";
+//end of pages
+
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils.js";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions.js";
@@ -49,6 +54,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="shop" element={<ShopPage />} />
+            <Route path="shop/:collectionName" element={<CollectionPage />} />
             <Route
               path="/signin"
               element={
