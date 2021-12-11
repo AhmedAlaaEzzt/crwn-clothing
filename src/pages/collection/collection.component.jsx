@@ -14,9 +14,7 @@ const COLLECTION_ID_MAP = {
 const CollectionPage = (props) => {
   const { collections } = props;
   let params = useParams();
-  const collection = collections.filter(
-    (collection) => collection.id === COLLECTION_ID_MAP[params.collectionName]
-  )[0];
+  const collection = collections[params.collectionName];
   const { title, items } = collection;
 
 
